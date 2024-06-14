@@ -4,15 +4,16 @@ import { useState, useEffect } from "react";
 import { writeTextFile, BaseDirectory, readTextFile } from "@tauri-apps/api/fs";
 
 import "./Edit.css";
+import Keybind from "./Keybind.tsx/Keybind";
 
 function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 	const [mode, setMode] = useState(0);
-	const [key, setKey] = useState("");
-	const [isListening, setListening] = useState(false);
 	const [color1, setColor1] = useState("#383838");
 	const [color2, setColor2] = useState("#5c5c5c");
 	const [appIcon, setAppIcon] = useState("");
 	const [actionIcon, setActionIcon] = useState("");
+	const [keybind, setKeyBind] = useState("");
+	const [name, setName] = useState("")
 
 	const loadUserPreferences = async () => {
 		const contents = await readTextFile("config\\UserPreferences.json", {
@@ -28,6 +29,8 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 		setColor2(ourData.colors[1]);
 		setAppIcon(ourData.appIcon);
 		setActionIcon(ourData.actionIcon);
+		setKeyBind(ourData.modeData)
+		setName(ourData.name)
 	};
 
 	const openImg = async (e: any) => {
@@ -57,10 +60,12 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 	};
 
 	const saveData = async () => {
+		let keybindData = (mode == 0 ? keybind: "wip")
+
 		let keyContents = {
-			name: "wip",
+			name: name,
 			mode: mode,
-			modeData: "wip",
+			modeData: keybindData,
 			colors: [color1, color2],
 			appIcon: appIcon,
 			actionIcon: actionIcon,
@@ -97,42 +102,15 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 		setColor2(e.target.value);
 	};
 
-	//todo fix
-	//these are both used to bind keybinds
-	const keybindButton = () => {
-		console.log("keybtn");
-		!isListening && setKey("");
-		setListening(true);
-	};
 
-	const onKeyDown = (event: any) => {
-		if (event.repeat) {
-			return;
-		}
+	const updateKeyBind = (fromKeybind:string) => {
+		setKeyBind(fromKeybind)
+	}
 
-		if (isListening) {
-			event.preventDefault();
-
-			setKey(event.code);
-			//setListening(false);
-		}
-	};
-
-	const onKeyUp = () => {
-		setListening(false);
-	};
 
 	useEffect(() => {
 		loadUserPreferences();
-
-		window.addEventListener("keydown", onKeyDown);
-		window.addEventListener("keyup", onKeyUp);
-
-		return () => {
-			window.removeEventListener("keydown", onKeyDown);
-			window.removeEventListener("keyup", onKeyUp);
-		};
-	}, [isListening]);
+	}, []);
 
 	return (
 		<div>
@@ -206,7 +184,7 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 					</div>
 				</div>
 				<div className="edit-controls">
-					<input className="name-input"></input>
+					<input className="name-input" value={name} onChange={e => setName(e.target.value)}></input>
 					<div className="macro-selector-wrapper">
 						<div className="macro-selector">
 							<button
@@ -245,22 +223,13 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 
 					<div className="modes">
 						{mode == 0 && (
-							<div className="mode-wrapper">
-								<h1 className="keybind-text">Key:</h1>
-								<button
-									className="keybind-button"
-									onClick={keybindButton}
-								>
-									{key}
-								</button>
-							</div>
+							<Keybind initialKeybind={keybind} setKeyBind={updateKeyBind} />
 						)}
 						{mode == 1 && (
 							<div className="mode-wrapper">
 								<h1 className="keybind-text">Script:</h1>
 								<button
 									className="keybind-button"
-									onClick={keybindButton}
 								>
 									upload file
 								</button>
