@@ -1,0 +1,44 @@
+:root {
+  --bg: #121212;
+  --selected-button: #FFFFFF;
+  --selected-text: #000000;
+  --unselected-button: #262626;
+  --unselected-text: #FFFFFF;
+
+  background-color: var(--bg);
+}
+
+@font-face{
+  font-family: "Geist-Bold";
+  src:local("Geist-Bold"),
+  url('/Geist-Bold.ttf') 
+}
+
+@font-face{
+  font-family: "Geist-Regular";
+  src:local("Geist-Regular"),
+  url('/Geist-Regular.ttf') 
+}
+
+@font-face{
+  font-family: "Geist-Thin";
+  src:local("Geist-Thin"),
+  url('/Geist-Thin.ttf') 
+}
+
+body {
+  margin: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

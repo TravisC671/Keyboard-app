@@ -1,0 +1,37 @@
+.key {
+  width: 125px;
+  height: 125px;
+  background: linear-gradient(45deg, var(--color1) 0%, var(--color2) 100%);
+  margin: 5px;
+  border-radius: 10px;
+  transition: 0.2s;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.key:hover {
+  transform: scale(1.1);
+}
+
+
+.nothing {
+  width: 0px;
+  height: 0px;
+}
+
+.key-app-icon-img {
+  width: 100px;
+}
+
+.small {
+  width: 85px;
+}
+
+.key-action-icon-img {
+  margin-top: 5px;
+  width: 25px;
+}
+
