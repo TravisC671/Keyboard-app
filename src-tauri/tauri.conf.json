@@ -4,10 +4,10 @@
     "beforeBuildCommand": "npm run build",
     "devPath": "http://localhost:1420",
     "distDir": "../dist"
-  },
-  "package": {
-    "productName": "keyboard-app",
-    "version": "0.0.0"
+    },
+    "package": {
+      "productName": "keyboard-app",
+      "version": "0.0.0"
   },
   "tauri": {
     "allowlist": {
@@ -43,7 +43,8 @@
         "title": "keyboard-app",
         "url": "../index.html",
         "width": 800,
-        "height": 545
+        "height": 545,
+        "decorations": false
       }
     ],
     "security": {
@@ -52,7 +53,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "com.trullycool.dev",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",

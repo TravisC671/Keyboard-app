@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-6);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-5);
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient-7);
+      }
+
+      .cls-7 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-8 {
+        fill: #606060;
+      }
+
+      .cls-9 {
+        fill: url(#linear-gradient-4);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="100.99" y1="39.13" x2="197.22" y2="94.69" gradientTransform="translate(515.16 389.89) rotate(-180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="gray"/>
+      <stop offset="1" stop-color="#404040"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="477.16" y1="45.25" x2="310.28" y2="45.25" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="265.16" y1="322.61" x2="265.16" y2="211.5" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="193.46" y1="293.36" x2="90.73" y2="115.43" gradientTransform="translate(515.16 389.89) rotate(-180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f5"/>
+      <stop offset="1" stop-color="#4affff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-5" x1="163.45" y1="-8.77" x2="366.87" y2="-8.77" gradientTransform="translate(515.16 389.89) rotate(-180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00e5ff"/>
+      <stop offset="1" stop-color="#ff5cd6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-6" x1="439.59" y1="115.43" x2="336.87" y2="293.35" gradientTransform="translate(515.16 389.89) rotate(-180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff4a77"/>
+      <stop offset="1" stop-color="#ffae5c"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-7" x1="143.35" y1="271.51" x2="356.49" y2="271.51" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2e2e2e"/>
+      <stop offset="1" stop-color="#404040"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <polygon class="cls-8" points="185.5 178.4 185.51 178.39 314.49 178.39 314.5 178.4 185.5 178.4"/>
+    <polygon class="cls-1" points="295.12 334.72 317.69 295.63 332.94 269.22 340.26 256.56 455.44 256.56 462 267.91 420.64 339.54 406.16 364.61 366.84 432.72 351.71 432.72 312.38 364.61 304.81 351.5 295.12 334.72"/>
+    <polygon class="cls-5" points="38 267.91 44.56 256.56 159.74 256.56 204.88 334.71 204.72 334.99 195.19 351.5 187.62 364.61 148.29 432.72 133.16 432.72 93.84 364.61 79.35 339.54 38 267.91"/>
+    <polygon class="cls-7" points="147.28 78.64 153.84 67.28 346.17 67.28 352.72 78.62 311.37 150.26 304.81 161.62 295.14 178.39 204.86 178.39 195.19 161.62 188.63 150.26 147.28 78.64"/>
+    <path class="cls-4" d="M295.13,178.39"/>
+    <path class="cls-4" d="M204.87,178.4"/>
+    <polygon class="cls-9" points="311.37 150.26 352.72 78.62 397.85 156.8 410.32 178.4 455.44 256.56 372.74 256.56 356.49 228.43 356.49 228.42 327.62 178.4 311.37 150.26"/>
+    <polygon class="cls-3" points="148.29 432.72 187.62 364.61 312.38 364.61 351.71 432.72 148.29 432.72"/>
+    <polygon class="cls-2" points="44.56 256.56 89.68 178.4 102.01 157.07 147.28 78.64 188.63 150.26 172.38 178.4 143.35 228.69 127.26 256.56 44.56 256.56"/>
+    <polygon class="cls-6" points="143.35 228.69 172.38 178.4 327.62 178.4 356.49 228.42 356.49 228.43 349.94 239.77 341.86 253.78 340.26 256.56 340.24 256.56 332.94 269.22 317.69 295.63 295.12 334.72 285.44 351.5 277.88 364.61 221.82 364.61 204.72 334.99 204.88 334.71 182.31 295.63 159.76 256.56 159.44 256.56 143.35 228.69"/>
+  </g>
+  <rect class="cls-4" width="500" height="500"/>
+</svg>

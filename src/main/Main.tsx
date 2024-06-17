@@ -13,6 +13,8 @@ function Main({ onKeyOpen }: { onKeyOpen: (keyID: string) => void }) {
 			dir: BaseDirectory.AppConfig,
 		});
 
+		console.log(BaseDirectory.AppConfig)
+
 		let parsedContents = JSON.parse(contents);
 
 		setContent(parsedContents);
