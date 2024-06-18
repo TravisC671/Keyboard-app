@@ -44,7 +44,8 @@
         "url": "../index.html",
         "width": 800,
         "height": 545,
-        "decorations": false
+        "decorations": true,
+        "transparent": false
       }
     ],
     "security": {

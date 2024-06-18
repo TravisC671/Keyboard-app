@@ -4,16 +4,27 @@ import { useState, useEffect } from "react";
 import { writeTextFile, BaseDirectory, readTextFile } from "@tauri-apps/api/fs";
 
 import "./Edit.css";
-import Keybind from "./Keybind.tsx/Keybind";
+import { useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Action from "./action/action";
 
-function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
+export async function loader({ params }: { params: any }) {
+	let keyID = params.keyid;
+	return { keyID };
+}
+
+function Edit() {
+	const { keyID }: { keyID: string } = useLoaderData() as { keyID: string };
+
 	const [mode, setMode] = useState(0);
 	const [color1, setColor1] = useState("#383838");
 	const [color2, setColor2] = useState("#5c5c5c");
 	const [appIcon, setAppIcon] = useState("");
 	const [actionIcon, setActionIcon] = useState("");
 	const [keybind, setKeyBind] = useState("");
-	const [name, setName] = useState("")
+	const [name, setName] = useState("");
+
+	//let keyID = '0'
 
 	const loadUserPreferences = async () => {
 		const contents = await readTextFile("config\\UserPreferences.json", {
@@ -29,8 +40,8 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 		setColor2(ourData.colors[1]);
 		setAppIcon(ourData.appIcon);
 		setActionIcon(ourData.actionIcon);
-		setKeyBind(ourData.modeData)
-		setName(ourData.name)
+		setKeyBind(ourData.modeData);
+		setName(ourData.name);
 	};
 
 	const openImg = async (e: any) => {
@@ -60,7 +71,7 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 	};
 
 	const saveData = async () => {
-		let keybindData = (mode == 0 ? keybind: "wip")
+		let keybindData = mode == 0 ? keybind : "wip";
 
 		let keyContents = {
 			name: name,
@@ -86,14 +97,6 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 		);
 	};
 
-	const backPage = () => {
-		onBack();
-	};
-
-	const selectMacro = (e: any) => {
-		setMode(parseInt(e.target.id));
-	};
-
 	const selectColor1 = (e: any) => {
 		setColor1(e.target.value);
 	};
@@ -103,10 +106,6 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 	};
 
 
-	const updateKeyBind = (fromKeybind:string) => {
-		setKeyBind(fromKeybind)
-	}
-
 
 	useEffect(() => {
 		loadUserPreferences();
@@ -114,9 +113,11 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 
 	return (
 		<div>
-			<button className="back-arrow" onClick={backPage}>
-				&lt;-
-			</button>
+			<Link to={`/index.html`}>
+				<button className="back-arrow">
+					&lt;-
+				</button>
+			</Link>
 			<button className="save-button" onClick={saveData}>
 				Save
 			</button>
@@ -134,10 +135,8 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 						<button
 							id="app-btn"
 							onClick={openImg}
-							className={
-                `app-icon 
-                  ${ appIcon == "" && "empty" }`
-              }
+							className={`app-icon 
+                  ${appIcon == "" && "empty"}`}
 						>
 							{appIcon != "" && (
 								<img
@@ -149,10 +148,8 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 						</button>
 						<button
 							onClick={openImg}
-							className={
-                `action-icon 
-                ${ actionIcon == "" &&  "empty" }`
-              }
+							className={`action-icon 
+                ${actionIcon == "" && "empty"}`}
 						>
 							{actionIcon != "" && (
 								<img
@@ -184,62 +181,17 @@ function Edit({ onBack, keyID }: { onBack: VoidFunction; keyID: string }) {
 					</div>
 				</div>
 				<div className="edit-controls">
-					<input className="name-input" value={name} onChange={e => setName(e.target.value)}></input>
-					<div className="macro-selector-wrapper">
-						<div className="macro-selector">
-							<button
-								id="0"
-								className={`macro-selector-button ${
-									mode == 0  && "selected"
-								}`}
-								onClick={selectMacro}
-							>
-								Keybind
-							</button>
-							<button
-								id="1"
-								className={`macro-selector-button ${
-									mode == 1 && "selected"
-								}`}
-								onClick={selectMacro}
-							>
-								Script
-							</button>
-							<button
-								id="2"
-								className={`macro-selector-button ${
-									mode == 2 && "selected"
-								}`}
-								onClick={selectMacro}
-							>
-								Command
-							</button>
-							<div
-								className="selected-macro"
-								style={{ left: mode * 100 }}
-							></div>
+					<input
+						className="name-input"
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+					></input>
+					<div className="action-container">
+						<Action />
+						<Action />
+						<div className="new-action-btn-center">
+							<button className="new-action-btn">+</button>
 						</div>
-					</div>
-
-					<div className="modes">
-						{mode == 0 && (
-							<Keybind initialKeybind={keybind} setKeyBind={updateKeyBind} />
-						)}
-						{mode == 1 && (
-							<div className="mode-wrapper">
-								<h1 className="keybind-text">Script:</h1>
-								<button
-									className="keybind-button"
-								>
-									upload file
-								</button>
-							</div>
-						)}
-						{mode == 2 && (
-							<div className="mode-wrapper">
-								<textarea className="command-input"></textarea>
-							</div>
-						)}
 					</div>
 				</div>
 			</div>

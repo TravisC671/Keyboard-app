@@ -24,10 +24,11 @@
 
 .edit-controls {
     margin-left: 50px;
+    width: 385px;
 }
 
 .name-input {
-    width: 375px;
+    width: 363px;
     height: 40px;
     font-family: "Geist-Bold";
     font-size: 35px;
@@ -37,99 +38,13 @@
     border-bottom: 1px solid white;
     border-radius: 10px 10px 0px 0px;
     padding-left: 10px;
+    margin-bottom: 15px;
 }
 
-.name-input:active,
-.name-input:focus,
 .name-input:focus-visible {
   outline: none;
 }
 
-.macro-selector-wrapper {
-    margin-top: 25px;
-    width: 300px;
-    height: 35px;
-    border-radius: 10px;
-    background-color: var(--unselected-button);
-    overflow: hidden;
-}
-
-.macro-selector-button {
-    position: relative;
-    width: 100px;
-    height: 35px;
-    font-family: "Geist-Regular";
-    z-index: 10;
-    background-color: #ffffff00;
-    border: none;
-    color: var(--unselected-text);
-    font-size: 17px;
-    transition: .2s;
-}
-
-.selected-macro {
-    position: relative;
-    top: -40px;
-    left: 0px;
-    z-index: 0;
-    width: 100px;
-    height: 50px;
-    background-color: var(--selected-button);
-    transition: .2s;
-    transition-timing-function: ease;
-}
-
-.selected {
-    color: var(--selected-text);
-}
-
-.keybind-text {
-    font-size: 20px;
-    font-family: "Geist-Thin";
-    color: var(--unselected-text);
-    pointer-events: none;
-    margin: 0px;
-}
-
-.keybind-button {
-    height: 35px;
-    min-width: 50px;
-    margin-left: 10px;
-    background-color: var(--unselected-button);
-    color: var(--unselected-text);
-    font-family: "Geist-Regular";
-    border-radius: 10px;
-    text-align: center;
-    font-size: 15px;
-    border: none;
-    
-}
-
-.hidden {
-    visibility: hidden;
-}
-
-.mode-wrapper {
-    display: flex;
-    align-items: center;
-    margin-top: 25px;
-}
-
-.command-input {
-    width: 370px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: var(--unselected-button);
-    border: none;
-    font-family: "Geist-Regular";
-    font-size: 15px;
-    color: var(--unselected-text);
-    padding: 10px;
-}
-
-.command-input:focus-visible {
-    outline: none;
-}
 .save-button {
     position: absolute;
     bottom: 50px;
@@ -204,4 +119,41 @@
 
 .empty {
     border: 1px dashed white;
+}
+
+.action-container {
+    max-height: 330px;
+    width: 350;
+    overflow-y: scroll;
+}
+
+.action-container::-webkit-scrollbar-track {
+    background-color: #40404000;
+  }
+  
+.action-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.action-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #737272;
+  border: 1px solid #000;
+}
+
+.new-action-btn-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.new-action-btn {
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1C1C1C;
+    color: white;
 }

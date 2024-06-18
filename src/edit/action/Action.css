@@ -1,0 +1,117 @@
+.action-wrapper {
+    background-color: #1C1C1C;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.action-dropdown-container {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.action-dropdown-text {
+    color: var(--unselected-text);
+    font-size: 17px;
+    font-family: "Geist-Regular";
+    margin: 0px;
+}
+
+#action-options {
+    margin-left: 10px;
+    background-color: #323232;
+    color: #C8C8C8;
+    border: none;
+    border-radius: 5px;
+}
+#action-options:focus-visible {
+    outline: none;
+}
+
+.macro-selector-wrapper {
+    height: 35px;
+    border-radius: 2px;
+    background-color: var(--unselected-button);
+    overflow: hidden;
+}
+
+.macro-selector-button {
+    position: relative;
+    width: calc(100% / 3);
+    height: 35px;
+    font-family: "Geist-Regular";
+    z-index: 10;
+    background-color: #ffffff00;
+    border: none;
+    color: var(--unselected-text);
+    font-size: 17px;
+    transition: .2s;
+}
+
+
+.selected-macro {
+    position: relative;
+    top: -40px;
+    left: 0px;
+    z-index: 0;
+    width: calc(100% / 3);
+    height: 50px;
+    background-color: var(--selected-button);
+    transition: .2s;
+    transition-timing-function: ease;
+}
+
+.selected {
+    color: var(--selected-text);
+}
+
+.mode-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.keybind-text {
+    font-size: 20px;
+    font-family: "Geist-Thin";
+    color: var(--unselected-text);
+    pointer-events: none;
+    margin: 0px;
+}
+
+.keybind-button {
+    height: 35px;
+    min-width: 50px;
+    margin-left: 10px;
+    background-color: var(--unselected-button);
+    color: var(--unselected-text);
+    font-family: "Geist-Regular";
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    
+}
+
+.command-input {
+    width: 350px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: var(--unselected-button);
+    border: none;
+    font-family: "Geist-Regular";
+    font-size: 15px;
+    color: var(--unselected-text);
+    padding: 10px;
+}
+
+.command-input:focus-visible {
+    outline: none;
+}
+
+.delete-action {
+    border: none;
+    background-color: #1c1c1c00;
+    color:  white;
+}

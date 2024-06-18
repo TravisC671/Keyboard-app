@@ -3,17 +3,15 @@ import { useEffect, useState } from "react";
 
 import defaultFile from "../defaultFile.json";
 import KeyIcon from "../lib/KeyIcon";
-import "./Main.css";
+import "./Home.css";
 
-function Main({ onKeyOpen }: { onKeyOpen: (keyID: string) => void }) {
+function Home() {
 	const [contents, setContent] = useState(defaultFile);
 
 	const readUserPreferences = async () => {
 		const contents = await readTextFile("config\\UserPreferences.json", {
 			dir: BaseDirectory.AppConfig,
 		});
-
-		console.log(BaseDirectory.AppConfig)
 
 		let parsedContents = JSON.parse(contents);
 
@@ -26,7 +24,6 @@ function Main({ onKeyOpen }: { onKeyOpen: (keyID: string) => void }) {
 
 	const keyIcons = contents.keys.map((key, index) => (
 		<KeyIcon
-			openKeyPage={onKeyOpen}
 			color={key.colors}
 			appIcon={key.appIcon}
 			actionIcon={key.actionIcon}
@@ -53,4 +50,4 @@ function Main({ onKeyOpen }: { onKeyOpen: (keyID: string) => void }) {
 	);
 }
 
-export default Main;
+export default Home;

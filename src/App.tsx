@@ -1,9 +1,8 @@
 //import { invoke } from "@tauri-apps/api/tauri";
 import { exists, BaseDirectory, writeTextFile } from "@tauri-apps/api/fs";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-import Main from "./main/Main";
-import Edit from "./edit/Edit";
+import Home from "./home/Home";
 import keys from "./defaultFile.json";
 
 import "./App.css";
@@ -13,19 +12,6 @@ function App() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     setGreetMsg(await invoke("greet", { name }));
     }*/
-
-	const [page, setPage] = useState(0);
-	const [openedKey, setOpenedKey] = useState("0");
-
-  const backPage = () => {
-    setPage(0);
-  };
-
-  //set page on key click
-  const onKeyOpen = (keyID: string) => {
-    setPage(1);
-    setOpenedKey(keyID);
-  };
 
 	const checkDirectory = async () => {
 
@@ -47,13 +33,7 @@ function App() {
 	}, []);
 
 	return (
-		<div>
-			{page == 0 ? (
-				<Main onKeyOpen={onKeyOpen} />
-			) : (
-				<Edit keyID={openedKey} onBack={backPage} />
-			)}
-		</div>
+		<Home/>
 	);
 }
 

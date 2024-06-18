@@ -1,13 +1,12 @@
+import { Link } from "react-router-dom";
 import "./KeyIcon.css";
 
 function KeyIcon({
-  openKeyPage,
   keyID,
   color,
   appIcon,
   actionIcon
 }: {
-  openKeyPage: (keyID: string) => void;
   keyID: string;
   color: string[];
   appIcon: string;
@@ -15,27 +14,29 @@ function KeyIcon({
 }) {
 
   const keyClick = () => {
-    openKeyPage(keyID);
+    //use key id
   };
 
   return (
-    <button
-      onClick={keyClick}
-      style={
-        { 
-          "--color1": color[0], 
-          "--color2": color[1] 
-        } as React.CSSProperties
-      }
-      className="key"
-    >
-      {appIcon != "" && (
-        <img id="app-img" className={`${actionIcon != "" ? 'small' : ''} key-app-icon-img`} src={appIcon}></img>
-      )}
-      {actionIcon != "" && (
-        <img className="key-action-icon-img" src={actionIcon}></img>
-      )}
-    </button>
+    <Link to={`key/${keyID}`}>
+      <button
+        onClick={keyClick}
+        style={
+          { 
+            "--color1": color[0], 
+            "--color2": color[1] 
+          } as React.CSSProperties
+        }
+        className="key"
+        >
+        {appIcon != "" && (
+          <img id="app-img" className={`${actionIcon != "" ? 'small' : ''} key-app-icon-img`} src={appIcon}></img>
+        )}
+        {actionIcon != "" && (
+          <img className="key-action-icon-img" src={actionIcon}></img>
+        )}
+      </button>
+    </Link>
   );
 }
 
