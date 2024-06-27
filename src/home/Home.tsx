@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import defaultFile from "../defaultFile.json";
 import KeyIcon from "../lib/KeyIcon";
 import "./Home.css";
+import TopBar from "../topbar/TopBar";
 
 function Home() {
 	const [contents, setContent] = useState(defaultFile);
@@ -34,6 +35,7 @@ function Home() {
 
 	return (
 		<div>
+			<TopBar />
 			<div className="key-wrapper">
 				<div className="key-container">{keyIcons}</div>
 			</div>

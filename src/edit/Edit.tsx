@@ -6,7 +6,11 @@ import { writeTextFile, BaseDirectory, readTextFile } from "@tauri-apps/api/fs";
 import "./Edit.css";
 import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Action from "./action/action";
+import Action from "./action/Action";
+import TopBar from "../topbar/TopBar";
+
+import backIcon from "/svg/back.svg";
+
 
 export async function loader({ params }: { params: any }) {
 	let keyID = params.keyid;
@@ -113,9 +117,10 @@ function Edit() {
 
 	return (
 		<div>
+			<TopBar />
 			<Link to={`/index.html`}>
 				<button className="back-arrow">
-					&lt;-
+					<img  className="back-arrow-icon" src={backIcon}></img>
 				</button>
 			</Link>
 			<button className="save-button" onClick={saveData}>
@@ -187,6 +192,7 @@ function Edit() {
 						onChange={(e) => setName(e.target.value)}
 					></input>
 					<div className="action-container">
+						<Action />
 						<Action />
 						<Action />
 						<div className="new-action-btn-center">
