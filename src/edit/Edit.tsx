@@ -10,12 +10,14 @@ import Action from "./action/Action";
 import TopBar from "../topbar/TopBar";
 
 import backIcon from "/svg/back.svg";
-
+import { actionType } from "../types";
 
 export async function loader({ params }: { params: any }) {
 	let keyID = params.keyid;
 	return { keyID };
 }
+
+
 
 function Edit() {
 	const { keyID }: { keyID: string } = useLoaderData() as { keyID: string };
@@ -27,8 +29,33 @@ function Edit() {
 	const [actionIcon, setActionIcon] = useState("");
 	const [keybind, setKeyBind] = useState("");
 	const [name, setName] = useState("");
+	const [actions, setActions]  = useState<actionType[]>([])
 
 	//let keyID = '0'
+
+	const updateAction = (id: number, actionInput: actionType) => {
+		//console.log(id, actionInput)
+
+		setActions((oldArray) => {
+			oldArray[id] = actionInput;
+			console.log(oldArray)
+			return oldArray
+		})
+	}
+
+	const removeAction = (id: number) => {
+		setActions((oldArray) => {
+			return oldArray.filter((value, index) => index != id);
+		})
+	}
+
+	let actionElem = actions.map((actionItem, index) => {
+		return <Action key={index} id={index} initialType={actionItem} updateAction={updateAction} removeAction={removeAction} />
+	})
+
+	const addAction = () => {
+		setActions((old) => [...old, {action: 'Press', actionMode: 0, actionData: ''}])
+	}
 
 	const loadUserPreferences = async () => {
 		const contents = await readTextFile("config\\UserPreferences.json", {
@@ -46,6 +73,7 @@ function Edit() {
 		setActionIcon(ourData.actionIcon);
 		setKeyBind(ourData.modeData);
 		setName(ourData.name);
+		setActions(ourData.actions)
 	};
 
 	const openImg = async (e: any) => {
@@ -75,12 +103,10 @@ function Edit() {
 	};
 
 	const saveData = async () => {
-		let keybindData = mode == 0 ? keybind : "wip";
 
 		let keyContents = {
 			name: name,
-			mode: mode,
-			modeData: keybindData,
+			actions: actions,
 			colors: [color1, color2],
 			appIcon: appIcon,
 			actionIcon: actionIcon,
@@ -109,7 +135,7 @@ function Edit() {
 		setColor2(e.target.value);
 	};
 
-
+	
 
 	useEffect(() => {
 		loadUserPreferences();
@@ -192,11 +218,9 @@ function Edit() {
 						onChange={(e) => setName(e.target.value)}
 					></input>
 					<div className="action-container">
-						<Action />
-						<Action />
-						<Action />
+						{actionElem}
 						<div className="new-action-btn-center">
-							<button className="new-action-btn">+</button>
+							<button className="new-action-btn" onClick={addAction}>+</button>
 						</div>
 					</div>
 				</div>

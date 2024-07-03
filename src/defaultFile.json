@@ -2,8 +2,7 @@
     "keys": [
         {
             "name": "",
-            "mode": 0,
-            "modeData": "",
+            "actions": [],
             "colors": [
                 "#383838",
                 "#5c5c5c"
@@ -13,8 +12,7 @@
         },
         {
             "name": "",
-            "mode": 0,
-            "modeData": "",
+            "actions": [],
             "colors": [
                 "#383838",
                 "#5c5c5c"
@@ -24,8 +22,7 @@
         },
         {
             "name": "",
-            "mode": 0,
-            "modeData": "",
+            "actions": [],
             "colors": [
                 "#383838",
                 "#5c5c5c"
@@ -35,8 +32,7 @@
         },
         {
             "name": "",
-            "mode": 0,
-            "modeData": "",
+            "actions": [],
             "colors": [
                 "#383838",
                 "#5c5c5c"
@@ -46,8 +42,7 @@
         },
         {
             "name": "",
-            "mode": 0,
-            "modeData": "",
+            "actions": [],
             "colors": [
                 "#383838",
                 "#5c5c5c"
@@ -57,8 +52,7 @@
         },
         {
             "name": "",
-            "mode": 0,
-            "modeData": "",
+            "actions": [],
             "colors": [
                 "#383838",
                 "#5c5c5c"
@@ -68,8 +62,7 @@
         },
         {
             "name": "",
-            "mode": 0,
-            "modeData": "",
+            "actions": [],
             "colors": [
                 "#383838",
                 "#5c5c5c"
@@ -79,8 +72,7 @@
         },
         {
             "name": "",
-            "mode": 0,
-            "modeData": "",
+            "actions": [],
             "colors": [
                 "#383838",
                 "#5c5c5c"
