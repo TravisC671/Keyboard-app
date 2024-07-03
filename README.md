@@ -4,5 +4,5 @@ currently only the front end is done, but it does generate a .json file to be us
 
 # Screenshots
 
-![main page](https://github.com/TravisC671/Keyboard-app/blob/main/assets/KeyboardAppMain.png?raw=true)
+![main page](https://github.com/TravisC671/Keyboard-app/blob/main/assets/keyboardAppMain.png?raw=true)
 ![edit macro page](https://github.com/TravisC671/Keyboard-app/blob/main/assets/KeyboardAppEdit.png?raw=true)
